@@ -1,6 +1,6 @@
 {
   "name": "gulp-pako",
-  "description": "A gulp plugin for Pako",
+  "description": "A gulp plugin to compress files with Pako.",
   "version": "0.0.1",
   "license": "MIT",
   "author": {
