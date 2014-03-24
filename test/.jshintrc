@@ -1,0 +1,20 @@
+{
+    "browser": false,
+    "jquery": false,
+    "node": true,
+    "eqeqeq": true,
+    "bitwise": true,
+    "laxcomma": true,
+    "latedef": false,
+    "newcap": true,
+    "quotmark": "single",
+    "multistr": true,
+    "unused": "vars",
+    "strict": false,
+    "trailing": true,
+    "immed": true,
+    "latedef": true,
+    "newcap": true,
+    "noarg": true,
+    "noempty": true
+}

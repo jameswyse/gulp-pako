@@ -1,0 +1,45 @@
+{
+  "name": "gulp-pako",
+  "description": "A gulp plugin for Pako",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": {
+    "name": "James Wyse",
+    "email": "james@jameswyse.net"
+  },
+  "homepage": "https://www.github.com/jameswyse/gulp-pako",
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/jameswyse/gulp-pako.git"
+  },
+  "bugs": {
+    "url": "https://www.github.com/jameswyse/gulp-pako/issues",
+    "email": "james@jameswyse.net"
+  },
+  "main": "lib/index.js",
+  "readmeFilename": "README.md",
+  "scripts": {
+    "test": "cd test && ../node_modules/.bin/mocha -R spec"
+  },
+  "keywords": [
+    "gulp",
+    "gulpplugin",
+    "pako",
+    "gzip",
+    "deflate",
+    "compress",
+    "zlib"
+  ],
+  "dependencies": {
+    "pako": "^0.1.1",
+    "through2": "^0.4.1",
+    "gulp-util": "^2.2.14"
+  },
+  "devDependencies": {
+    "event-stream": "^3.1.0",
+    "mocha": "^1.18.2",
+    "gulp": "^3.5.6",
+    "should": "^3.2.0-beta1",
+    "zlib": "^1.0.5"
+  }
+}
