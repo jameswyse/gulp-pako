@@ -2,6 +2,8 @@ gulp-pako
 =========
 A [Gulp](https://github.com/gulpjs/gulp) plugin for [Pako](https://github.com/nodeca/pako), a port of the [zlib library](http://zlib.net/manual.html#Advanced) written in pure JavaScript.
 
+![](https://www.codeship.io/projects/955cb530-9866-0131-e2be-6e7fe8324e3d/status)
+
 ## Purpose
 This plugin helps create compressed copies of your static assets using the `gzip` or `deflate` formats.  Your web server can then be configured to serve these directly to browsers, avoiding the overhead of on-the-fly compression.
 
