@@ -1,0 +1,7 @@
+{
+    "tasks": [
+        "npm install",
+        "cd test",
+        "../node_modules/.bin/mocha -R spec"
+    ]
+}
