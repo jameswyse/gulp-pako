@@ -1,7 +1,7 @@
 {
   "name": "gulp-pako",
-  "description": "A gulp plugin to compress files with Pako.",
-  "version": "0.0.1",
+  "description": "A gulp plugin to compress (gzip, deflate) files with Pako.",
+  "version": "0.1.0",
   "license": "MIT",
   "author": {
     "name": "James Wyse",
@@ -31,15 +31,15 @@
     "zlib"
   ],
   "dependencies": {
-    "pako": "^0.1.1",
+    "pako": "^0.2.1",
     "through2": "^0.4.1",
     "gulp-util": "^2.2.14"
   },
   "devDependencies": {
-    "event-stream": "^3.1.0",
-    "mocha": "^1.18.2",
-    "gulp": "^3.5.6",
-    "should": "^3.2.0-beta1",
+    "event-stream": "^3.1.5",
+    "mocha": "^1.19.0",
+    "gulp": "^3.6.2",
+    "should": "^3.3.1",
     "zlib": "^1.0.5"
   }
 }
