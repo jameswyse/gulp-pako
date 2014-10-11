@@ -8,10 +8,10 @@ var exec   = require('child_process').exec;
 
 require('mocha');
 
-exec('mkdir -p outputs');
+exec('mkdir -p ' + __dirname + '/outputs');
 
 function clean(callback) {
-  exec('rm -rf outputs/*', callback);
+  exec('rm -f ' + __dirname + '/outputs/*', callback);
 }
 
 describe('gulp-pako', function() {
@@ -20,7 +20,7 @@ describe('gulp-pako', function() {
     afterEach(clean);
 
     it('should append .gz to the file extension', function(done) {
-      gulp.src('inputs/*.txt')
+      gulp.src(__dirname + '/inputs/*.txt')
         .pipe(pako.gzip())
         .pipe(es.map(function(file, callback) {
           should(file.path).endWith('.gz');
@@ -30,7 +30,7 @@ describe('gulp-pako', function() {
     });
 
     it('should return a Buffer', function(done) {
-      gulp.src('inputs/*.txt', { buffer: true })
+      gulp.src(__dirname + '/inputs/*.txt', { buffer: true })
         .pipe(pako.gzip())
         .pipe(es.map(function(file, callback) {
           should(file.contents).instanceOf(Buffer);
@@ -41,7 +41,7 @@ describe('gulp-pako', function() {
     });
 
     it('should not allow Streams', function(done) {
-      gulp.src('inputs/*.txt', { buffer: false })
+      gulp.src(__dirname + '/inputs/*.txt', { buffer: false })
         .pipe(pako.gzip())
         .on('error', function(err) {
           err.should.be.instanceOf(Error);
@@ -50,10 +50,10 @@ describe('gulp-pako', function() {
     });
 
     it('should create a valid file', function(done) {
-      var writer = gulp.dest('./outputs');
+      var writer = gulp.dest(__dirname + '/outputs');
 
       writer.on('end', function() {
-        fs.readFile('./outputs/one.txt.gz', function(err, contents) {
+        fs.readFile(__dirname + '/outputs/one.txt.gz', function(err, contents) {
           should.not.exist(err);
           should.exist(contents);
           contents.should.not.be.empty;
@@ -61,19 +61,19 @@ describe('gulp-pako', function() {
         });
       });
 
-      gulp.src('inputs/*.txt')
+      gulp.src(__dirname + '/inputs/*.txt')
         .pipe(pako.gzip())
         .pipe(writer);
     });
 
     it('should decompress correctly', function(done) {
-      var writer = gulp.dest('./outputs');
+      var writer = gulp.dest(__dirname + '/outputs');
 
       writer.on('end', function() {
-        fs.readFile('./outputs/one.txt.gz', function(err, contents) {
+        fs.readFile(__dirname + '/outputs/one.txt.gz', function(err, contents) {
           zlib.gunzip(contents, function(err, buf) {
             var result = buf.toString('utf8', 0, buf.length);
-            fs.readFile('./inputs/one.txt', { encoding: 'utf8' }, function(err, original) {
+            fs.readFile(__dirname + '/inputs/one.txt', { encoding: 'utf8' }, function(err, original) {
               should.not.exist(err);
               original.should.equal(result);
               done();
@@ -82,7 +82,7 @@ describe('gulp-pako', function() {
         });
       });
 
-      gulp.src('inputs/*.txt')
+      gulp.src(__dirname + '/inputs/*.txt')
         .pipe(pako.gzip())
         .pipe(writer);
     });
@@ -92,7 +92,7 @@ describe('gulp-pako', function() {
     afterEach(clean);
 
     it('should append .deflate to the file extension', function(done) {
-      gulp.src('inputs/*.txt')
+      gulp.src(__dirname + '/inputs/*.txt')
         .pipe(pako.deflate())
         .pipe(es.map(function(file, callback) {
           should(file.path).endWith('.deflate');
@@ -102,7 +102,7 @@ describe('gulp-pako', function() {
     });
 
     it('should return a Buffer', function(done) {
-      gulp.src('inputs/*.txt', { buffer: true })
+      gulp.src(__dirname + '/inputs/*.txt', { buffer: true })
         .pipe(pako.deflate())
         .pipe(es.map(function(file, callback) {
           should(file.contents).instanceOf(Buffer);
@@ -113,7 +113,7 @@ describe('gulp-pako', function() {
     });
 
     it('should not allow Streams', function(done) {
-      gulp.src('inputs/*.txt', { buffer: false })
+      gulp.src(__dirname + '/inputs/*.txt', { buffer: false })
         .pipe(pako.deflate())
         .on('error', function(err) {
           err.should.be.instanceOf(Error);
@@ -122,10 +122,10 @@ describe('gulp-pako', function() {
     });
 
     it('should create a valid file', function(done) {
-      var writer = gulp.dest('./outputs');
+      var writer = gulp.dest(__dirname + '/outputs');
 
       writer.on('end', function() {
-        fs.readFile('./outputs/one.txt.deflate', function(err, contents) {
+        fs.readFile(__dirname + '/outputs/one.txt.deflate', function(err, contents) {
           should.not.exist(err);
           should.exist(contents);
           contents.should.not.be.empty;
@@ -133,19 +133,19 @@ describe('gulp-pako', function() {
         });
       });
 
-      gulp.src('inputs/*.txt')
+      gulp.src(__dirname + '/inputs/*.txt')
         .pipe(pako.deflate())
         .pipe(writer);
     });
 
     it('should decompress correctly', function(done) {
-      var writer = gulp.dest('./outputs');
+      var writer = gulp.dest(__dirname + '/outputs');
 
       writer.on('end', function() {
-        fs.readFile('./outputs/one.txt.deflate', function(err, contents) {
+        fs.readFile(__dirname + '/outputs/one.txt.deflate', function(err, contents) {
           zlib.inflate(contents, function(err, buf) {
             var result = buf.toString('utf8', 0, buf.length);
-            fs.readFile('./inputs/one.txt', { encoding: 'utf8' }, function(err, original) {
+            fs.readFile(__dirname + '/inputs/one.txt', { encoding: 'utf8' }, function(err, original) {
               should.not.exist(err);
               original.should.equal(result);
               done();
@@ -154,7 +154,7 @@ describe('gulp-pako', function() {
         });
       });
 
-      gulp.src('inputs/*.txt')
+      gulp.src(__dirname + '/inputs/*.txt')
         .pipe(pako.deflate())
         .pipe(writer);
     });
