@@ -31,9 +31,9 @@
     "zlib"
   ],
   "dependencies": {
-    "gulp-util": "^2.2.14"
     "pako": "^0.2.5",
     "through2": "^0.6.3",
+    "gulp-util": "^3.0.1"
   },
   "devDependencies": {
     "event-stream": "^3.1.5",
