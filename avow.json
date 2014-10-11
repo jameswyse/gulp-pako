@@ -1,6 +1,0 @@
-{
-    "tasks": [
-        "npm install",
-        "npm run-script test"
-    ]
-}
