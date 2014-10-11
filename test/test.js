@@ -52,7 +52,7 @@ describe('gulp-pako', function() {
     it('should create a valid file', function(done) {
       var writer = gulp.dest('./outputs');
 
-      writer.on('close', function() {
+      writer.on('end', function() {
         fs.readFile('./outputs/one.txt.gz', function(err, contents) {
           should.not.exist(err);
           should.exist(contents);
@@ -69,7 +69,7 @@ describe('gulp-pako', function() {
     it('should decompress correctly', function(done) {
       var writer = gulp.dest('./outputs');
 
-      writer.on('close', function() {
+      writer.on('end', function() {
         fs.readFile('./outputs/one.txt.gz', function(err, contents) {
           zlib.gunzip(contents, function(err, buf) {
             var result = buf.toString('utf8', 0, buf.length);
@@ -124,7 +124,7 @@ describe('gulp-pako', function() {
     it('should create a valid file', function(done) {
       var writer = gulp.dest('./outputs');
 
-      writer.on('close', function() {
+      writer.on('end', function() {
         fs.readFile('./outputs/one.txt.deflate', function(err, contents) {
           should.not.exist(err);
           should.exist(contents);
@@ -141,7 +141,7 @@ describe('gulp-pako', function() {
     it('should decompress correctly', function(done) {
       var writer = gulp.dest('./outputs');
 
-      writer.on('close', function() {
+      writer.on('end', function() {
         fs.readFile('./outputs/one.txt.deflate', function(err, contents) {
           zlib.inflate(contents, function(err, buf) {
             var result = buf.toString('utf8', 0, buf.length);
