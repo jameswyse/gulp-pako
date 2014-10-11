@@ -1,8 +1,9 @@
+[![npm](http://img.shields.io/npm/v/gulp-pako.svg?style=flat-square)](http://npmjs.org/package/gulp-pako) [![npm](http://img.shields.io/david/jameswyse/project-dotfiles.svg?style=flat-square)](http://npmjs.org/package/project-dotfiles) [![npm](http://img.shields.io/david/dev/jameswyse/project-dotfiles.svg?style=flat-square)](http://npmjs.org/package/project-dotfiles) ![codeship](http://img.shields.io/codeship/955cb530-9866-0131-e2be-6e7fe8324e3d.svg?style=flat-square) [![Code Climate](http://img.shields.io/codeclimate/github/jameswyse/gulp-pako.svg?style=flat-square)](https://codeclimate.com/github/jameswyse/gulp-pako) [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://jameswyse.mit-license.org)
+
 gulp-pako
 =========
-A [Gulp](https://github.com/gulpjs/gulp) plugin for [Pako](https://github.com/nodeca/pako), a port of the [zlib library](http://zlib.net/manual.html#Advanced) written in pure JavaScript.
 
-![](https://www.codeship.io/projects/955cb530-9866-0131-e2be-6e7fe8324e3d/status)
+A [Gulp](https://github.com/gulpjs/gulp) plugin for [Pako](https://github.com/nodeca/pako), a port of the [zlib library](http://zlib.net/manual.html#Advanced) written in pure JavaScript.
 
 ## Purpose
 This plugin helps create compressed copies of your static assets using the `gzip` or `deflate` formats.  Your web server can then be configured to serve these directly to browsers, avoiding the overhead of on-the-fly compression.
@@ -12,6 +13,8 @@ This plugin helps create compressed copies of your static assets using the `gzip
 - For Amazon S3, just upload the compressed files alongside your uncompressed files. Be sure to set the `Content-Type` and `Content-Encoding` headers.
 
 ## Install
+
+[![NPM](https://nodei.co/npm/gulp-pako.png)](https://nodei.co/npm/gulp-pako/)
 
 ```bash
 $ npm install --save-dev gulp-pako
@@ -60,6 +63,11 @@ Same as `pako('gzip', options)`
 ### `pako.deflate([options])`
 Same as `pako('deflate', options)`
 
+## Testing
+
+```bash
+$ npm test
+ ```
 
 ## License
 
